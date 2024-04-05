@@ -6,6 +6,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private StarterAssetsInputs  starterAssetsInputs ;
+   private Ball ballAttachedToPayer;
+   private Animator animator;
+   private float timeShot=-1f;
+   public const int ANIMATION_LAYER_SHOOT=1;
+
+   public BallAttachedToPlayer{get=>BallAttachedToPlayer;set=>ballAttachedToPlayer=value;}
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +24,30 @@ public class Player : MonoBehaviour
     {
         if(starterAssetsInputs.shoot )
         {
-            Debug.Log("Shoot!");
+            starterAssetsInputs.shoot=false;
+            timeShot=Time.time;
+            animator.Play("Shoot",ANIMATION_LAYER_SHOOT,0F);
+               animator.SetLayerWeight(ANIMATION_LAYER_SHOOT,1F);
+        }
+        if(timeShot>0)
+        {
+            //shoot Ball
+            if(ballAttachedToPlayer!=null && Time.time-timeShot>0.2)
+            {
+                ballAttachedToPlayer.StickToPlayer=false;
+                Rigidbody rigidbody=ballAttachedToPlayer.transform.gameObject.GetComponent<Rigidbody>();
+                rigidbody.AddForce(transform.forward*20f,ForceMode.Impulse);
+                ballAttachedToPlayer=null;
+            }
+            //finish kicking animation
+            if(Time.time-timeShot>0.5)
+            {
+                timeShot=-1f;
+            }
+        }
+        else
+        {
+            animator.SetLayerWeight(ANIMATION_LAYER_SHOOT,Mathf.Lerp(animator.GetLayerWeight(ANIMATION_LAYER_SHOOT),0f,Time.deltaTime*10f));
         }
     }
 }
