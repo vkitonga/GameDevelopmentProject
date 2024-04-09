@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private StarterAssetsInputs  starterAssetsInputs ;
+   private StarterAssetsInputs  starterAssetsInputs ;
    private Ball ballAttachedToPayer;
    private Animator animator;
    private float timeShot=-1f;
@@ -35,8 +35,12 @@ public class Player : MonoBehaviour
             if(ballAttachedToPlayer!=null && Time.time-timeShot>0.2)
             {
                 ballAttachedToPlayer.StickToPlayer=false;
+
                 Rigidbody rigidbody=ballAttachedToPlayer.transform.gameObject.GetComponent<Rigidbody>();
+                Vector3 shootdirection=transform.forward;
+                shootdirection.y+=0.2f;
                 rigidbody.AddForce(transform.forward*20f,ForceMode.Impulse);
+
                 ballAttachedToPlayer=null;
             }
             //finish kicking animation
