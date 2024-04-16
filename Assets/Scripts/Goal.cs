@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
+    [SerializeField]private Player scriptPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +20,14 @@ public class Goal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag,Equals("Ball"))
+        if(other.gameObject.tag.Equals("Ball"))
         {
-            Debug.Log("Goal!");
+            if(name.Equals("GoalDetector1"))
+            scriptPlayer.IncreasemyScore();
+        }
+        else
+        {
+            scriptPlayer.IncreaseotherScore();
         }
     }
 }

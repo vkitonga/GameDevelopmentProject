@@ -2,16 +2,20 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
+   [SerializeField]private TextMeshProUGUI textScore;
    private StarterAssetsInputs  starterAssetsInputs ;
    private Ball ballAttachedToPayer;
    private Animator animator;
    private float timeShot=-1f;
    public const int ANIMATION_LAYER_SHOOT=1;
+   private int myScore,otherScore;
 
-   public BallAttachedToPlayer{get=>BallAttachedToPlayer;set=>ballAttachedToPlayer=value;}
+   public Ball ballAttachedToPlayer{get=>ballAttachedToPlayer;set=>ballAttachedToPlayer=value;}
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +31,8 @@ public class Player : MonoBehaviour
             starterAssetsInputs.shoot=false;
             timeShot=Time.time;
             animator.Play("Shoot",ANIMATION_LAYER_SHOOT,0F);
-               animator.SetLayerWeight(ANIMATION_LAYER_SHOOT,1F);
+            animator.SetLayerWeight(ANIMATION_LAYER_SHOOT,1F);
+           
         }
         if(timeShot>0)
         {
@@ -54,4 +59,21 @@ public class Player : MonoBehaviour
             animator.SetLayerWeight(ANIMATION_LAYER_SHOOT,Mathf.Lerp(animator.GetLayerWeight(ANIMATION_LAYER_SHOOT),0f,Time.deltaTime*10f));
         }
     }
+
+    public void IncreasemyScore()
+    {
+        myScore++;
+        UpdateScore();
+    }
+    
+    public void IncreaseotherScore()
+    {
+        otherScore++;
+        UpdateScore();
+    }
+    private void UpdateScore()
+    {
+        textScore.text="Score:"+myScore.ToString()+"-"+otherScore.ToString();
+    }
 }
+

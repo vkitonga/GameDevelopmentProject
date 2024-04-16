@@ -30,7 +30,7 @@ public class Ball : MonoBehaviour
         if(distanceToPlayer<0.5)
         {
             stickToPlayer=true;
-            scriptPlayer.BallAttachedToPlayer=this;
+            scriptPlayer.ballAttachedToPlayer=this;
         }
         }
         else
