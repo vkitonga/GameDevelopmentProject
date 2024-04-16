@@ -42,6 +42,12 @@ public class Ball : MonoBehaviour
             transform.Rotate(new Vector3(transformPlayer.right.x,0,transformPlayer.right.z),speed,Space.World);
             previousLocation=currentLocation;
         }
-        
+        if(transform.position.y <-2)
+        {
+            transform.position=new Vector3(Random.value * 56 - 22,-1.14f,Random.value *28-6);
+            Rigidbody rigidbody=GetComponent<Rigidbody>();
+            rigidbody.velocity=Vector3.zero;
+            rigidbody.angularVelocity=Vector3.zero;
+        }
     }
 }

@@ -8,12 +8,14 @@ using TMPro;
 public class Player : MonoBehaviour
 {
    [SerializeField]private TextMeshProUGUI textScore;
+   [SerializeField]private TextMeshProUGUI textGoal;
    private StarterAssetsInputs  starterAssetsInputs ;
    private Ball ballAttachedToPayer;
    private Animator animator;
    private float timeShot=-1f;
    public const int ANIMATION_LAYER_SHOOT=1;
    private int myScore,otherScore;
+   private float goalTextColorAlpha;
 
    public Ball ballAttachedToPlayer{get=>ballAttachedToPlayer;set=>ballAttachedToPlayer=value;}
 
@@ -58,6 +60,12 @@ public class Player : MonoBehaviour
         {
             animator.SetLayerWeight(ANIMATION_LAYER_SHOOT,Mathf.Lerp(animator.GetLayerWeight(ANIMATION_LAYER_SHOOT),0f,Time.deltaTime*10f));
         }
+        if(goalTextColorAlpha>0)
+        {
+            goalTextColorAlpha-=Time.deltaTime;
+            textGoal.alpha=goalTextColorAlpha;
+            textGoal.fontSize=90-(goalTextColorAlpha * 1-0);
+        }
     }
 
     public void IncreasemyScore()
@@ -74,6 +82,8 @@ public class Player : MonoBehaviour
     private void UpdateScore()
     {
         textScore.text="Score:"+myScore.ToString()+"-"+otherScore.ToString();
+        goalTextColorAlpha=1f;
     }
+   
 }
 
