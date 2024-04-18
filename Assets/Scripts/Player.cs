@@ -17,12 +17,13 @@ public class Player : MonoBehaviour
    private int myScore,otherScore;
    private float goalTextColorAlpha;
 
-   public Ball ballAttachedToPlayer{get=>ballAttachedToPlayer;set=>ballAttachedToPlayer=value;}
+   public Ball ballAttachedToPlayer {get => ballAttachedToPlayer; set => ballAttachedToPlayer= value;}
 
     // Start is called before the first frame update
     void Start()
     {
         starterAssetsInputs =GetComponent<StarterAssetsInputs >();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,14 +33,14 @@ public class Player : MonoBehaviour
         {
             starterAssetsInputs.shoot=false;
             timeShot=Time.time;
-            animator.Play("Shoot",ANIMATION_LAYER_SHOOT,0F);
-            animator.SetLayerWeight(ANIMATION_LAYER_SHOOT,1F);
+            animator.Play("Shoot",ANIMATION_LAYER_SHOOT,0f);
+            animator.SetLayerWeight(ANIMATION_LAYER_SHOOT,1f);
            
         }
         if(timeShot>0)
         {
             //shoot Ball
-            if(ballAttachedToPlayer!=null && Time.time-timeShot>0.2)
+            if (ballAttachedToPlayer != null && Time.time-timeShot > 0.2)
             {
                 ballAttachedToPlayer.StickToPlayer=false;
 
@@ -48,7 +49,7 @@ public class Player : MonoBehaviour
                 shootdirection.y+=0.2f;
                 rigidbody.AddForce(transform.forward*20f,ForceMode.Impulse);
 
-                ballAttachedToPlayer=null;
+                ballAttachedToPlayer = null;
             }
             //finish kicking animation
             if(Time.time-timeShot>0.5)
