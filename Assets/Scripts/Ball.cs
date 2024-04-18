@@ -7,8 +7,8 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     [SerializeField]private Transform transformPlayer;
-    [SerializeField]private Transform playerBallPosition;
     private bool stickToPlayer;
+    [SerializeField]private Transform playerBallPosition;
     float speed;
     Vector3 previousLocation;
     Player scriptPlayer;

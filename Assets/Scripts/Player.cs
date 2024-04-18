@@ -10,8 +10,8 @@ public class Player : MonoBehaviour
    [SerializeField]private TextMeshProUGUI textScore;
    [SerializeField]private TextMeshProUGUI textGoal;
    private StarterAssetsInputs  starterAssetsInputs ;
-   private Ball ballAttachedToPayer;
    private Animator animator;
+   private Ball ballAttachedToPayer;
    private float timeShot=-1f;
    public const int ANIMATION_LAYER_SHOOT=1;
    private int myScore,otherScore;
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         {
             starterAssetsInputs.shoot=false;
             timeShot=Time.time;
-            animator.Play("Shoot",ANIMATION_LAYER_SHOOT,0f);
+            animator.Play("SHOOT",ANIMATION_LAYER_SHOOT,0f);
             animator.SetLayerWeight(ANIMATION_LAYER_SHOOT,1f);
            
         }
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
 
                 Rigidbody rigidbody=ballAttachedToPlayer.transform.gameObject.GetComponent<Rigidbody>();
                 Vector3 shootdirection=transform.forward;
-                shootdirection.y+=0.2f;
+                shootdirection.y += 0.2f;
                 rigidbody.AddForce(transform.forward*20f,ForceMode.Impulse);
 
                 ballAttachedToPlayer = null;
