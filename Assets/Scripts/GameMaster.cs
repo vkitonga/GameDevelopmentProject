@@ -61,13 +61,13 @@ public class GameMaster : MonoBehaviour
 
             //input the information from the savedata to the new player
             newPlayer.playerName = saveData.playerNames[i];
-            newPlayer.kills = saveData.kills[i];
-            newPlayer.death = saveData.deaths[i];
+            newPlayer.Loose = saveData.kills[i];
+            newPlayer.Win = saveData.deaths[i];
 
             //calculate the kdr and input it
-            if (newPlayer.death == 0) newPlayer.kdr = newPlayer.kills;
-            else if (newPlayer.kills == 0) newPlayer.kdr = -newPlayer.death;
-            else newPlayer.kdr = (float)newPlayer.kills / (float)newPlayer.death;
+            if (newPlayer.Win == 0) newPlayer.Draw = newPlayer.Loose;
+            else if (newPlayer.Loose == 0) newPlayer.Draw = -newPlayer.Win;
+            else newPlayer.Draw = (float)newPlayer.Loose / (float)newPlayer.Win;
 
             //Add new player to list
             tempPlayers.Add(newPlayer);
@@ -87,13 +87,13 @@ public class GameMaster : MonoBehaviour
             else //if the player already exists, then replace its score with your current score
             {
                 PlayerData existingPlayer = tempPlayers.Find(p => p.playerName == currentPlayer1.playerName);
-                existingPlayer.kills = currentPlayer1.kills;
-                existingPlayer.death = currentPlayer1.death;
+                existingPlayer.Loose = currentPlayer1.Loose;
+                existingPlayer.Win = currentPlayer1.Win;
                 
                 //calculate the kdr and input it
-                if (existingPlayer.death == 0) existingPlayer.kdr = existingPlayer.kills;
-                else if (existingPlayer.kills == 0) existingPlayer.kdr = -existingPlayer.death;
-                else existingPlayer.kdr = (float)existingPlayer.kills / (float)existingPlayer.death;
+                if (existingPlayer.Win == 0) existingPlayer.Draw = existingPlayer.Loose;
+                else if (existingPlayer.Loose == 0) existingPlayer.Draw = -existingPlayer.Win;
+                else existingPlayer.Draw = (float)existingPlayer.Loose / (float)existingPlayer.Win;
             }
             //check if list already contains player 2
             if (tempPlayers.Find(p => p.playerName == currentPlayer2.playerName) == null)
@@ -103,17 +103,17 @@ public class GameMaster : MonoBehaviour
             else //if the player already exists, then replace its score with your current score
             {
                 PlayerData existingPlayer = tempPlayers.Find(p => p.playerName == currentPlayer2.playerName);
-                existingPlayer.kills = currentPlayer2.kills;
-                existingPlayer.death = currentPlayer2.death;
+                existingPlayer.Loose = currentPlayer2.Loose;
+                existingPlayer.Win = currentPlayer2.Win;
 
                 //calculate the kdr and input it
-                if (existingPlayer.death == 0) existingPlayer.kdr = existingPlayer.kills;
-                else if (existingPlayer.kills == 0) existingPlayer.kdr = -existingPlayer.death;
-                else existingPlayer.kdr = (float)existingPlayer.kills / (float)existingPlayer.death;
+                if (existingPlayer.Win == 0) existingPlayer.Draw = existingPlayer.Loose;
+                else if (existingPlayer.Loose == 0) existingPlayer.Draw = -existingPlayer.Win;
+                else existingPlayer.Draw = (float)existingPlayer.Loose / (float)existingPlayer.Win;
             }
 
         }
-        List<PlayerData> sortedPlayers = unSortedPlayers.OrderByDescending(p => p.kdr).ToList();
+        List<PlayerData> sortedPlayers = unSortedPlayers.OrderByDescending(p => p.Draw).ToList();
         return sortedPlayers;
     }
 
@@ -125,8 +125,8 @@ public class GameMaster : MonoBehaviour
         for(int i = 0; i < 10; i++)
         {
             saveData.playerNames[i] = players[i].playerName;
-            saveData.kills[i] = players[i].kills;
-            saveData.deaths[i] = players[i].death;
+            saveData.kills[i] = players[i].Loose;
+            saveData.deaths[i] = players[i].Win;
         }
     }
     
@@ -194,9 +194,9 @@ public class GameMaster : MonoBehaviour
         foreach (PlayerData player in tempPlayers)
         {
             player.playerName = "";
-            player.kills = 0;
-            player.death = 0;
-            player.kdr = 0;
+            player.Loose = 0;
+            player.Win = 0;
+            player.Draw = 0;
         }
     }
     void RandomFillData()
@@ -214,14 +214,14 @@ public class GameMaster : MonoBehaviour
                 player.playerName += glyphs[Random.Range(0, glyphs.Length)];
             }
             //generate random Kills score
-            player.kills = Random.Range(0, 20);
+            player.Loose = Random.Range(0, 20);
             //generate random deaths
-            player.death = Random.Range(0, 20);
+            player.Win = Random.Range(0, 20);
 
             //calculate the kdr and input it
-            if (player.death == 0) player.kdr = player.kills;
-            else if (player.kills == 0) player.kdr = -player.death;
-            else player.kdr = (float)player.kills / (float)player.death;
+            if (player.Win == 0) player.Draw = player.Loose;
+            else if (player.Loose == 0) player.Draw = -player.Win;
+            else player.Draw = (float)player.Loose / (float)player.Win;
         }
 
     }

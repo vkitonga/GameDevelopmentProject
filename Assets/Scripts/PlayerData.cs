@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerData
 {
     public string playerName;
-    public int kills;
-    public int death;
-    public float kdr;
+    public int Loose;
+    public int Win;
+    public float Draw;
 }
