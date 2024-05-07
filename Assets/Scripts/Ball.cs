@@ -29,8 +29,8 @@ public class Ball : MonoBehaviour
             float distanceToPlayer=Vector3.Distance(transformPlayer.position,transform.position);
         if(distanceToPlayer<0.5)
         {
-            stickToPlayer=true;
-            scriptPlayer.ballAttachedToPlayer=this;
+            stickToPlayer = true;
+            scriptPlayer.BallAttachedToPlayer = this; // Update Line
         }
         }
         else

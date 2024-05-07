@@ -11,13 +11,14 @@ public class Player : MonoBehaviour
    [SerializeField]private TextMeshProUGUI textGoal;
    private StarterAssetsInputs  starterAssetsInputs ;
    private Animator animator;
-   private Ball ballAttachedToPayer;
+   private Ball ballAttachedToPlayer; //Updated Line
    private float timeShot=-1f;
    public const int ANIMATION_LAYER_SHOOT=1;
    private int myScore,otherScore;
    private float goalTextColorAlpha;
 
-   public Ball ballAttachedToPlayer {get => ballAttachedToPlayer; set => ballAttachedToPlayer= value;}
+    //Updated Line
+   public Ball BallAttachedToPlayer {get => ballAttachedToPlayer; set => ballAttachedToPlayer = value;}
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +45,7 @@ public class Player : MonoBehaviour
             {
                 ballAttachedToPlayer.StickToPlayer=false;
 
-                Rigidbody rigidbody=ballAttachedToPlayer.transform.gameObject.GetComponent<Rigidbody>();
+                Rigidbody rigidbody= ballAttachedToPlayer.transform.gameObject.GetComponent<Rigidbody>();
                 Vector3 shootdirection=transform.forward;
                 shootdirection.y += 0.2f;
                 rigidbody.AddForce(transform.forward*20f,ForceMode.Impulse);
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour
         {
             animator.SetLayerWeight(ANIMATION_LAYER_SHOOT,Mathf.Lerp(animator.GetLayerWeight(ANIMATION_LAYER_SHOOT),0f,Time.deltaTime*10f));
         }
+      
         if(goalTextColorAlpha>0)
         {
             goalTextColorAlpha-=Time.deltaTime;
