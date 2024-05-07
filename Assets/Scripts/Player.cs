@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
                 Rigidbody rigidbody= ballAttachedToPlayer.transform.gameObject.GetComponent<Rigidbody>();
                 Vector3 shootdirection=transform.forward;
                 shootdirection.y += 0.2f;
-                rigidbody.AddForce(transform.forward*20f,ForceMode.Impulse);
+                rigidbody.AddForce(transform.forward*60f,ForceMode.Impulse);
 
                 ballAttachedToPlayer = null;
             }
