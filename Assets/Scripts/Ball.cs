@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public class Ball: MonoBehaviour
 {
     [SerializeField]private Transform transformPlayer;
     private bool stickToPlayer;

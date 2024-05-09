@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
                 Rigidbody rigidbody= ballAttachedToPlayer.transform.gameObject.GetComponent<Rigidbody>();
                 Vector3 shootdirection=transform.forward;
                 shootdirection.y += 0.2f;
-                rigidbody.AddForce(transform.forward*60f,ForceMode.Impulse);
+                rigidbody.AddForce(transform.forward*50f,ForceMode.Impulse);
 
                 ballAttachedToPlayer = null;
             }
@@ -62,7 +62,6 @@ public class Player : MonoBehaviour
         {
             animator.SetLayerWeight(ANIMATION_LAYER_SHOOT,Mathf.Lerp(animator.GetLayerWeight(ANIMATION_LAYER_SHOOT),0f,Time.deltaTime*10f));
         }
-      
         if(goalTextColorAlpha>0)
         {
             goalTextColorAlpha-=Time.deltaTime;
