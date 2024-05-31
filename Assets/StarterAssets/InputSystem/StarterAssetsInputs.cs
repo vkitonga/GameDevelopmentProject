@@ -44,6 +44,9 @@ namespace StarterAssets
 		{
 			ShootInput(value.isPressed);
 		}
+
+		
+		
 	
 		public void OnSprint(InputValue value)
 		{
