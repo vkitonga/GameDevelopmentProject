@@ -29,5 +29,15 @@ public class Goal : MonoBehaviour
         {
             scriptPlayer.IncreaseotherScore();
         }
+     if(other.gameObject.tag.Equals("Ball"))
+        {
+            if(name.Equals("GoalDetector2"))
+            scriptPlayer.IncreasemyScore();
+        }
+        else
+        {
+            scriptPlayer.IncreaseotherScore();
+        }
     }
+   
 }
