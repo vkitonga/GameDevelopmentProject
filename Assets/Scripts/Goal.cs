@@ -22,7 +22,7 @@ public class Goal : MonoBehaviour
     {
         if(other.gameObject.tag.Equals("Ball"))
         {
-            if(name.Equals("GoalDetector1"))
+            if(name.Equals("GoalDetector 1"))
             scriptPlayer.IncreasemyScore();
         }
         else
@@ -31,7 +31,7 @@ public class Goal : MonoBehaviour
         }
      if(other.gameObject.tag.Equals("Ball"))
         {
-            if(name.Equals("GoalDetector2"))
+            if(name.Equals("GoalDetector 2"))
             scriptPlayer.IncreasemyScore();
         }
         else
