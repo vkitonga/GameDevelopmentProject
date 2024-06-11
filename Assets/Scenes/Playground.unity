@@ -1370,6 +1370,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8279798545678494202, guid: f0271df749728104eac22c3d897fd8ce,
+        type: 3}
+      propertyPath: m_PointerBehavior
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4091,12 +4096,12 @@ PrefabInstance:
     - target: {fileID: 3585717693844261083, guid: 0469c2878cdfba5458058afe1af67db6,
         type: 3}
       propertyPath: m_DefaultControlScheme
-      value: KeyboardMouse
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3585717693844261083, guid: 0469c2878cdfba5458058afe1af67db6,
         type: 3}
       propertyPath: m_NeverAutoSwitchControlSchemes
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8044974739243083215, guid: 0469c2878cdfba5458058afe1af67db6,
         type: 3}

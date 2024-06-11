@@ -13,6 +13,7 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool shoot;
+		public bool join;
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
@@ -49,6 +50,11 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+		public void OnJoin(InputValue value)
+		{
+			JoinInput(value.isPressed);
+		}
+
 #endif
 
 
@@ -75,6 +81,10 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+		}
+		public void JoinInput(bool newJoinState)
+		{
+			join = newJoinState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)
