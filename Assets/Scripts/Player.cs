@@ -17,6 +17,12 @@ public class Player : MonoBehaviour
    private int myScore,otherScore;
    private float goalTextColorAlpha;
 
+    //NEW CODE
+    [HideInInspector]
+    public bool altInput;
+    [HideInInspector]
+    public AltPlayerInput inputScript;
+
     //Updated Line
    public Ball BallAttachedToPlayer {get => ballAttachedToPlayer; set => ballAttachedToPlayer = value;}
 
@@ -30,7 +36,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(starterAssetsInputs.shoot )
+        if(starterAssetsInputs.shoot || altInput && inputScript.shoot)
         {
             starterAssetsInputs.shoot=false;
             timeShot=Time.time;

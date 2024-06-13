@@ -13,6 +13,7 @@ public class Ball: MonoBehaviour
     Vector3 previousLocation;
     Player scriptPlayer;
 
+
     public bool StickToPlayer{get=>stickToPlayer;set=>stickToPlayer=value;}
     // Start is called before the first frame update
     void Start()
