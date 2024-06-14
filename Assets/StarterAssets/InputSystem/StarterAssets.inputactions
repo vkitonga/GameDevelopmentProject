@@ -247,7 +247,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "1a5c131b-ec13-4e13-be7e-5285c2bb8484",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -272,21 +272,21 @@
                 },
                 {
                     "name": "Sprint",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "1fc4a0f6-0282-46d8-967d-90be4b7e4a5b",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Shoot",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "7ddd4b10-2910-474e-8c19-74cbd9be786c",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Join",
