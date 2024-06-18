@@ -34,12 +34,12 @@ public class Goal : MonoBehaviour
      if(other.gameObject.tag.Equals("Ball"))
         {
             if(name.Equals("GoalDetector 2"))
-            scriptPlayer.IncreasemyScore();
-             TurnManager.instance.ChangeTurn();
+            scriptPlayer.IncreaseotherScore();
+            TurnManager.instance.ChangeTurn();
         }
         else
         {
-            scriptPlayer.IncreaseotherScore();
+            scriptPlayer.IncreasemyScore();
         }
     }
    
