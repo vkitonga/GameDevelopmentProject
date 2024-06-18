@@ -9,11 +9,18 @@ public class TurnManager : MonoBehaviour
     public enum Turn {Player1, Player2};
     public Turn currentTurn;
 
+    public static TurnManager instance;
+
+    void Awake()
+    {
+        if(instance == null) instance = this;
+        else Destroy(gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ChangeTurn();
     }
 
     // Update is called once per frame
@@ -21,15 +28,18 @@ public class TurnManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.T))
         {
-            if(currentTurn == Turn.Player2) ChangeTurn(Turn.Player1);
+            if(currentTurn == Turn.Player2) ChangeTurn();
             
-            else if(currentTurn == Turn.Player1) ChangeTurn(Turn.Player2);
+            else if(currentTurn == Turn.Player1) ChangeTurn();
         }
     }
 
-    public void ChangeTurn(Turn turn)
+    public void ChangeTurn()
     {
-        currentTurn = turn;
+        if(currentTurn == Turn.Player2) currentTurn = Turn.Player1;
+            
+        else if(currentTurn == Turn.Player1) currentTurn = Turn.Player2;
+        
         if(currentTurn == Turn.Player2)
         {
             player1.SetActive(false);

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     [SerializeField]private Player scriptPlayer;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class Goal : MonoBehaviour
         {
             if(name.Equals("GoalDetector 1"))
             scriptPlayer.IncreasemyScore();
+            TurnManager.instance.ChangeTurn();
         }
         else
         {
@@ -33,6 +35,7 @@ public class Goal : MonoBehaviour
         {
             if(name.Equals("GoalDetector 2"))
             scriptPlayer.IncreasemyScore();
+             TurnManager.instance.ChangeTurn();
         }
         else
         {

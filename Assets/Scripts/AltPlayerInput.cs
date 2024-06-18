@@ -50,12 +50,14 @@ public class AltPlayerInput : MonoBehaviour
             float x = -ToInt(Input.GetKey(KeyCode.A)) + ToInt(Input.GetKey(KeyCode.D));
             float y = -ToInt(Input.GetKey(KeyCode.S)) + ToInt(Input.GetKey(KeyCode.W));
             return new Vector2(x, y);
+            
         }
         else
         { 
             float x = -ToInt(Input.GetKey(KeyCode.LeftArrow)) + ToInt(Input.GetKey(KeyCode.RightArrow));
             float y = -ToInt(Input.GetKey(KeyCode.DownArrow)) + ToInt(Input.GetKey(KeyCode.UpArrow));
             return new Vector2(x, y);
+             
         }
     } 
     int ToInt(bool myBool)

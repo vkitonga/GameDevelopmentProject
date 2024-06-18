@@ -281,9 +281,9 @@
                 },
                 {
                     "name": "Shoot",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "7ddd4b10-2910-474e-8c19-74cbd9be786c",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -434,7 +434,7 @@
                 {
                     "name": "",
                     "id": "8ede3972-4726-4822-90bb-d69ccacdef1b",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/comma",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
