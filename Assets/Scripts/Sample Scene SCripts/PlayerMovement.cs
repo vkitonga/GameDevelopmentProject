@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     // identify players
     public enum Players {player1, player2 }
     public Players player;
+    string xInput, zInput;
 
     //component variable
     private Rigidbody rb;
@@ -23,14 +24,24 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        if(player==Players.player1)
+        {
+            xInput="Horizontal";
+            zInput="Vertical";
+        }
+        else
+        {
+            xInput="Horizontal2";
+            zInput="Vertical2";
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         //get the horizontal and vertical inputs from the keyboard
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        float x = Input.GetAxis(xInput);
+        float y = Input.GetAxis(zInput);
 
         //get forward and side directions from the camera
         Vector3 camX = Camera.main.transform.right;
