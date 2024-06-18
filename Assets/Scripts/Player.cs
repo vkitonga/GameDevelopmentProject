@@ -91,6 +91,7 @@ public class Player : MonoBehaviour
     {
         textScore.text="Score:"+myScore.ToString()+"-"+otherScore.ToString();
         goalTextColorAlpha=1f;
+         TurnManager.instance.ChangeTurn();
     }
    
 }
