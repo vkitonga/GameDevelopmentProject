@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     // Class Variables
     [Header("Timer Settings")]
     public bool countDown = true;              // Whether the timer counts down or up
-    public float maxTime = 30.0f;              // Maximum time for the timer
+    public float maxTime = 10.0f;              // Maximum time for the timer
     public bool finite = true;                 // Whether the timer should finish after reaching maxTime or count infinitely
     public bool startOnAwake = false;
 
