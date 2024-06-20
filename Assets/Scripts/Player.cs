@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
    private Ball ballAttachedToPlayer; //Updated Line
    private float timeShot=-1f;
    public const int ANIMATION_LAYER_SHOOT=1;
-   private int myScore,otherScore;
+   private static int player1Score,player2Score;
    private float goalTextColorAlpha;
 
     //NEW CODE
@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
     {
         starterAssetsInputs =GetComponent<StarterAssetsInputs >();
         animator = GetComponent<Animator>();
+        player2Score = 0;
+        player1Score = 0;
     }
 
     // Update is called once per frame
@@ -78,18 +80,18 @@ public class Player : MonoBehaviour
 
     public void IncreasemyScore()
     {
-        myScore++;
+        player1Score++;
         UpdateScore();
     }
     
     public void IncreaseotherScore()
     {
-        otherScore++;
+        player2Score++;
         UpdateScore();
     }
     private void UpdateScore()
     {
-        textScore.text="Score:"+myScore.ToString()+"-"+otherScore.ToString();
+        textScore.text="Score:"+player1Score.ToString()+"-"+player2Score.ToString();
         goalTextColorAlpha=1f;
          TurnManager.instance.ChangeTurn();
     }

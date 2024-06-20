@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
+  public static TurnManager instance;    
     public GameObject player1, player2;
 
     public enum Turn {Player1, Player2};
     public Turn currentTurn;
 
-    public static TurnManager instance;
+  
 
     void Awake()
     {
@@ -28,24 +29,28 @@ public class TurnManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.T))
         {
-            if(currentTurn == Turn.Player2) ChangeTurn();
+            ChangeTurn();
+            //if(currentTurn == Turn.Player2) ChangeTurn();
             
-            else if(currentTurn == Turn.Player1) ChangeTurn();
+            //else if(currentTurn == Turn.Player1) ChangeTurn();
         }
     }
 
     public void ChangeTurn()
     {
+        Debug.Log("Attempt To Change");
         if(currentTurn == Turn.Player2) currentTurn = Turn.Player1;
             
         else if(currentTurn == Turn.Player1) currentTurn = Turn.Player2;
         
         if(currentTurn == Turn.Player2)
         {
+            Debug.Log("Activate 2");
             player1.SetActive(false);
             player2.SetActive(true);
         }
         else{
+             Debug.Log("Activate 1");
             player1.SetActive(true);
             player2.SetActive(false);
         }

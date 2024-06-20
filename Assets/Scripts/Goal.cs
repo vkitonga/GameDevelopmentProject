@@ -5,7 +5,7 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     [SerializeField]private Player scriptPlayer;
-    
+    public TurnManager turnManager;
 
     // Start is called before the first frame update
     void Start()
@@ -23,23 +23,29 @@ public class Goal : MonoBehaviour
     {
         if(other.gameObject.tag.Equals("Ball"))
         {
-            if(name.Equals("GoalDetector 1"))
-            scriptPlayer.IncreasemyScore();
-            TurnManager.instance.ChangeTurn();
+            if(name.Equals("GoalDetector1"))
+            {
+                 scriptPlayer.IncreasemyScore();
+            turnManager.ChangeTurn();
+            }
+           else if(name.Equals("GoalDetector2"))
+            {
+                 scriptPlayer.IncreaseotherScore();
+                turnManager.ChangeTurn();
+            }
         }
         else
         {
-            scriptPlayer.IncreaseotherScore();
+            //scriptPlayer.IncreaseotherScore();
         }
      if(other.gameObject.tag.Equals("Ball"))
         {
-            if(name.Equals("GoalDetector 2"))
-            scriptPlayer.IncreaseotherScore();
-            TurnManager.instance.ChangeTurn();
+            
+           
         }
         else
         {
-            scriptPlayer.IncreasemyScore();
+            //scriptPlayer.IncreasemyScore();
         }
     }
    
