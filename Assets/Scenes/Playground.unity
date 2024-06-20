@@ -1519,7 +1519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDown: 1
-  maxTime: 20
+  maxTime: 90
   finite: 1
   startOnAwake: 1
   onTimerFinished:
@@ -2035,7 +2035,7 @@ Transform:
   m_GameObject: {fileID: 1804431428}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.105, y: 0.2, z: 0.748}
+  m_LocalPosition: {x: -0.063, y: 0.147, z: 0.748}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
