@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
     {
         textScore.text="Score:"+player1Score.ToString()+"-"+player2Score.ToString();
         goalTextColorAlpha=1f;
-         TurnManager.instance.ChangeTurn();
+        TurnManager.instance.ChangeTurn();
     }
    
 }
