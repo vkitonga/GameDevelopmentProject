@@ -8,7 +8,7 @@ public class LobbyManager : MonoBehaviour
     //UI Elements
     public TMP_InputField player1Name;
     public TMP_InputField player2Name;
-    public TMP_InputField maxKills;
+    public TMP_InputField maxDraw;
     public TMP_InputField maxTime;
 
     //UI buttons
@@ -41,7 +41,7 @@ public class LobbyManager : MonoBehaviour
         {
             player2Name.text = GameMaster.instance.saveData.playerNames[1];
         }
-        maxKills.text = GameMaster.instance.saveData.maxKills.ToString();
+        maxDraw.text = GameMaster.instance.saveData.maxDraw.ToString();
         maxTime.text = GameMaster.instance.saveData.maxRoundTime.ToString();
     }
     public void UpdatePlayerName(int playerNum)
@@ -57,7 +57,7 @@ public class LobbyManager : MonoBehaviour
     }
     public void UpdateKills()
     {
-        GameMaster.instance.saveData.maxKills = int.Parse(maxKills.text);
+        GameMaster.instance.saveData.maxDraw = int.Parse(maxDraw.text);
         
     }    
     public void UpdateTime()

@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Playground.unity
     guid: e9017d5f96b9f09489b4b37e1d6eb914
   - enabled: 1
+    path: Assets/Scenes/ScoreBoard.unity
+    guid: e7ecd5c4bc1123f4fa1f752475bb5d45
+  - enabled: 1
     path: Assets/Scenes/ConnectToServer.unity
     guid: 67af6f434dbd079449a0186a86127747
   m_configObjects:

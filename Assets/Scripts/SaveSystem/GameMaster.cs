@@ -61,8 +61,8 @@ public class GameMaster : MonoBehaviour
 
             //input the information from the savedata to the new player
             newPlayer.playerName = saveData.playerNames[i];
-            newPlayer.Loose = saveData.kills[i];
-            newPlayer.Win = saveData.deaths[i];
+            newPlayer.Loose = saveData.Loose[i];
+            newPlayer.Win = saveData.Win[i];
 
             //calculate the kdr and input it
             if (newPlayer.Win == 0) newPlayer.Draw = newPlayer.Loose;
@@ -125,8 +125,8 @@ public class GameMaster : MonoBehaviour
         for(int i = 0; i < 10; i++)
         {
             saveData.playerNames[i] = players[i].playerName;
-            saveData.kills[i] = players[i].Loose;
-            saveData.deaths[i] = players[i].Win;
+            saveData.Loose[i] = players[i].Loose;
+            saveData.Win[i] = players[i].Win;
         }
     }
     
