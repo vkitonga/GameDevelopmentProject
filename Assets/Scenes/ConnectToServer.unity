@@ -220,7 +220,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1191333980}
+      - m_Target: {fileID: 1191333981}
         m_TargetAssemblyTypeName: LobbyUI, Assembly-CSharp
         m_MethodName: UpdatePlayerName
         m_Mode: 1
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1191333980}
+      - m_Target: {fileID: 1191333981}
         m_TargetAssemblyTypeName: LobbyUI, Assembly-CSharp
         m_MethodName: UpdatePlayerName
         m_Mode: 1
@@ -1291,7 +1291,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1191333980}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LobbyUI, Assembly-CSharp
         m_MethodName: LeaveRoom
         m_Mode: 1
@@ -1666,7 +1666,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1191333980}
+      - m_Target: {fileID: 1191333981}
         m_TargetAssemblyTypeName: LobbyUI, Assembly-CSharp
         m_MethodName: UpdateReadyBools
         m_Mode: 6
@@ -2264,7 +2264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37c9b67de12ab343bae8e540d8d2084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pvCache: {fileID: 0}
   joinField: {fileID: 1749425052}
   createField: {fileID: 1635393524}
   debugText: {fileID: 1875408483}
@@ -2534,8 +2533,8 @@ GameObject:
   - component: {fileID: 1191333979}
   - component: {fileID: 1191333978}
   - component: {fileID: 1191333977}
-  - component: {fileID: 1191333980}
   - component: {fileID: 1191333981}
+  - component: {fileID: 1191333980}
   m_Layer: 5
   m_Name: RoomLobby
   m_TagString: Untagged
@@ -2640,19 +2639,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1191333975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d5c2088af21eaa43b6fa036da0decdd, type: 3}
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pvCache: {fileID: 0}
-  playerNameField: {fileID: 74467731}
-  readyButton: {fileID: 1887018998}
-  cancelButton: {fileID: 796558224}
-  playButton: {fileID: 1328284129}
-  roomName: {fileID: 2075719405}
-  playerNumbers: {fileID: 376817879}
-  debugText: {fileID: 1248043620}
-  view: {fileID: 0}
-  isReady: []
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &1191333981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2662,25 +2661,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1191333975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d5c2088af21eaa43b6fa036da0decdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  mixedModeIsReliable: 0
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
-  RpcMonoBehaviours: []
-  <IsMine>k__BackingField: 0
-  <CreatorActorNr>k__BackingField: 0
-  <AmOwner>k__BackingField: 0
-  sceneViewId: 1
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
-  removedFromLocalViewList: 0
+  playerNameField: {fileID: 74467731}
+  readyButton: {fileID: 1887018998}
+  cancelButton: {fileID: 796558224}
+  playButton: {fileID: 1328284129}
+  roomName: {fileID: 2075719405}
+  playerNumbers: {fileID: 376817879}
+  debugText: {fileID: 1248043620}
+  isReady: 
 --- !u!1 &1248043618
 GameObject:
   m_ObjectHideFlags: 0
@@ -3225,7 +3216,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1191333980}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LobbyUI, Assembly-CSharp
         m_MethodName: AttemptToStart
         m_Mode: 1
@@ -4433,7 +4424,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1191333980}
+      - m_Target: {fileID: 1191333981}
         m_TargetAssemblyTypeName: LobbyUI, Assembly-CSharp
         m_MethodName: UpdateReadyBools
         m_Mode: 6
@@ -4445,7 +4436,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1887018998}
+      - m_Target: {fileID: 796558224}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: set_interactable
         m_Mode: 6
@@ -4457,7 +4448,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 796558224}
+      - m_Target: {fileID: 1887018998}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: set_interactable
         m_Mode: 6
@@ -4728,7 +4719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1921494024}
-  - component: {fileID: 1921494023}
+  - component: {fileID: 1921494025}
   m_Layer: 0
   m_Name: Launcher
   m_TagString: Untagged
@@ -4736,25 +4727,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1921494023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1921494022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2962daf8a10315546bb5545c8ae54ed3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pvCache: {fileID: 0}
-  maxPlayersPerRoom: 0
-  connectPanel: {fileID: 1898493682}
-  progressPanel: {fileID: 302588021}
-  roomPanel: {fileID: 963828293}
-  lobbyPanel: {fileID: 1191333975}
-  gameVersion: 1
 --- !u!4 &1921494024
 Transform:
   m_ObjectHideFlags: 0
@@ -4770,6 +4742,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1921494025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921494022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2962daf8a10315546bb5545c8ae54ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayersPerRoom: 2
+  connectPanel: {fileID: 1898493682}
+  progressPanel: {fileID: 302588021}
+  roomPanel: {fileID: 963828293}
+  lobbyPanel: {fileID: 1191333975}
 --- !u!1 &1945986894
 GameObject:
   m_ObjectHideFlags: 0
