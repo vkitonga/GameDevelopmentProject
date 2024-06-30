@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ConnectToServer.unity
     guid: 67af6f434dbd079449a0186a86127747
+  - enabled: 1
+    path: Assets/Scenes/OnlineGamePlay.unity
+    guid: 149bbbf2a5d1a18498282d49faa8e766
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7,
       type: 2}
