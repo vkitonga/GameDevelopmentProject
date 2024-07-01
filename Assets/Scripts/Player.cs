@@ -26,9 +26,10 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public AltPlayerInput inputScript;
     public bool isOnline = false;
+    internal int playerNumber;
 
     //Updated Line
-   public Ball BallAttachedToPlayer {get => ballAttachedToPlayer; set => ballAttachedToPlayer = value;}
+    public Ball BallAttachedToPlayer {get => ballAttachedToPlayer; set => ballAttachedToPlayer = value;}
 
     // Start is called before the first frame update
     void Start()
