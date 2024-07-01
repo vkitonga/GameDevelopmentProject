@@ -1906,7 +1906,19 @@ MonoBehaviour:
   startOnAwake: 0
   onTimerFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1863816280}
+        m_TargetAssemblyTypeName: GamePlayManager, Assembly-CSharp
+        m_MethodName: EndGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   IsRunning: 0
   CurrentTime: 0
 --- !u!114 &1863816280
@@ -3085,6 +3097,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2700965095890771812, guid: 993c9dab105bea04eaee802a1d54ffc9,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3491541576056878289, guid: 993c9dab105bea04eaee802a1d54ffc9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3217,10 +3234,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c8bc3b2978dbc4693f30ba895894e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  view: {fileID: 0}
   playerNumber: 0
   moveInput: {x: 0, y: 0}
   shoot: 0
   analogMovement: 0
+  isOnline: 0
 --- !u!1 &7052810896149407332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1446850644666527968, guid: 0469c2878cdfba5458058afe1af67db6,
@@ -3504,6 +3523,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 658360580246144707, guid: 0469c2878cdfba5458058afe1af67db6,
         type: 3}
+      propertyPath: isOnline
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 658360580246144707, guid: 0469c2878cdfba5458058afe1af67db6,
+        type: 3}
       propertyPath: textGoal
       value: 
       objectReference: {fileID: 2090621921}
@@ -3567,6 +3591,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 1545725467725227753, guid: 0469c2878cdfba5458058afe1af67db6,
+        type: 3}
+      propertyPath: isOnline
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1646722231808939221, guid: 0469c2878cdfba5458058afe1af67db6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3590,12 +3619,12 @@ PrefabInstance:
     - target: {fileID: 3585717693844261083, guid: 0469c2878cdfba5458058afe1af67db6,
         type: 3}
       propertyPath: m_DefaultControlScheme
-      value: 
+      value: KeyboardMouse
       objectReference: {fileID: 0}
     - target: {fileID: 3585717693844261083, guid: 0469c2878cdfba5458058afe1af67db6,
         type: 3}
       propertyPath: m_NeverAutoSwitchControlSchemes
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

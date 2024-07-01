@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
-
+using Photon.Pun;
+using Photon.Realtime;
 public enum PlayerNumber { ONE, TWO }
 
 public class AltPlayerInput : MonoBehaviour
-{ 
+{
+    [SerializeField] PhotonView view;
     public PlayerNumber playerNumber;
 
     [HideInInspector]
@@ -18,7 +20,7 @@ public class AltPlayerInput : MonoBehaviour
     public bool shoot;
     [HideInInspector]
     public bool analogMovement;
-
+    public bool isOnline = false;
     //script references
     ThirdPersonController TPC;
     Player p;
@@ -26,7 +28,8 @@ public class AltPlayerInput : MonoBehaviour
 
     void Start()
     {
-        if(playerNumber == PlayerNumber.ONE)
+        if (isOnline) view = GetComponent<PhotonView>();
+        if (playerNumber == PlayerNumber.ONE)
         {
             shootKey = KeyCode.G;
             moveInput = CalculateInputVector();
@@ -40,6 +43,7 @@ public class AltPlayerInput : MonoBehaviour
     }
     public void Update()
     {
+        if (isOnline && view.IsMine == false) return; //ADDEDLINE FOR ONLINE PLAY
         moveInput = CalculateInputVector();
         shoot = Input.GetKey(shootKey);
     }

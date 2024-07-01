@@ -4,12 +4,13 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
+using ExitGames.Client.Photon;
 
 /// <summary>
 /// Manage game state, scores, and respawns during gameplay. Only one GamePlayManager should be in the scene
 /// reference this script to access gameplay objects like UI
 /// </summary>
-public class GamePlayManager : MonoBehaviour
+public class GamePlayManager : MonoBehaviour,IOnEventCallback
 {
     #region Variables
     //store gameplay states
@@ -47,7 +48,9 @@ public class GamePlayManager : MonoBehaviour
     public TMP_Text timerText;
     public TMP_Text messageText;
 
-    
+    //Define Photon events
+    private const byte TIMER_UPDATE = 1;
+    private const byte UPDATE_NAMES = 2;
     [Header("Other Components")]
     //store a timer
     public Timer gameTimer;
@@ -56,6 +59,32 @@ public class GamePlayManager : MonoBehaviour
 
     #endregion
 
+    #region Raise Event Code
+    //enable or disable the ability to listen to events
+    private void OnEnable()
+    {
+        PhotonNetwork.AddCallbackTarget(this);
+    }
+    private void OnDisable()
+    {
+        PhotonNetwork.RemoveCallbackTarget(this);
+    }
+    //listen to events,and respond locally
+    public void OnEvent(EventData data)
+    {
+        if (data.Code == TIMER_UPDATE)
+        {
+            object[] localData = (object[])data.CustomData;
+            timerText.text = (string)localData[0];
+        }
+       else if (data.Code == UPDATE_NAMES)
+        {
+            object[] localData = (object[])data.CustomData;
+            player1Name = (string)localData[0];
+            player2Name = (string)localData[1];
+        }
+    }
+    #endregion
     #region Singleton
     public static GamePlayManager instance; //create a static reference to ourselves
 
@@ -70,6 +99,27 @@ public class GamePlayManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //if a Gamemaster exists, then use it's data
+        if (GameMaster.instance != null)
+        {
+            maxScore = GameMaster.instance.saveData.maxDraw; //remember in your game, you may change maxDraw to something else
+            gameDuration = GameMaster.instance.saveData.maxRoundTime;
+            if (!isOnline)
+            {
+                player1Name = GameMaster.instance.currentPlayer1.playerName;
+                player2Name = GameMaster.instance.currentPlayer2.playerName;
+            }
+            else if (PhotonNetwork.IsMasterClient)
+            {
+                //update or create your data locally
+                player1Name = PhotonNetwork.CurrentRoom.GetPlayer(1).NickName;
+                player2Name = PhotonNetwork.CurrentRoom.GetPlayer(2).NickName;
+                //format your data into an array of objects
+                object[] data = new object[] { player1Name, player2Name };
+                PhotonNetwork.RaiseEvent(UPDATE_NAMES, data, RaiseEventOptions.Default, SendOptions.SendUnreliable);
+            }
+
+        }
         SetupGame();
     }
 
@@ -153,7 +203,17 @@ public class GamePlayManager : MonoBehaviour
     //Display the timer
     void DisplayTimer()
     {
-        timerText.text = gameTimer.GetFormattedTime();
+        if (!isOnline)
+        {
+            timerText.text = gameTimer.GetFormattedTime();
+        }
+       else if (PhotonNetwork.IsMasterClient)
+        {
+            string formattedTime = gameTimer.GetFormattedTime();
+            object[] data = new object[] { formattedTime };
+            PhotonNetwork.RaiseEvent(TIMER_UPDATE, data, RaiseEventOptions.Default, SendOptions.SendUnreliable);
+            timerText.text = formattedTime;
+        }
     }
 
     //run intro sequence

@@ -2671,7 +2671,7 @@ MonoBehaviour:
   roomName: {fileID: 2075719405}
   playerNumbers: {fileID: 376817879}
   debugText: {fileID: 1248043620}
-  isReady: 
+  isReady: 0000
 --- !u!1 &1248043618
 GameObject:
   m_ObjectHideFlags: 0
