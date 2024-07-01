@@ -434,7 +434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Name: {fileID: 862124414}
   player2Name: {fileID: 2027235987}
-  maxKills: {fileID: 2032202741}
+  maxDraw: {fileID: 2032202741}
   maxTime: {fileID: 1652411914}
   playButton: {fileID: 1804189017}
   player1ReadyUp: {fileID: 136890647}
@@ -1700,7 +1700,7 @@ PrefabInstance:
     - target: {fileID: 6554084812895374878, guid: c32a6b7f54d974242a8cbae7b39a2523,
         type: 3}
       propertyPath: m_Name
-      value: Loose Limit
+      value: Draw Limit
       objectReference: {fileID: 0}
     - target: {fileID: 6819423722299259381, guid: c32a6b7f54d974242a8cbae7b39a2523,
         type: 3}
@@ -1878,7 +1878,7 @@ PrefabInstance:
     - target: {fileID: 7513911311303269664, guid: c32a6b7f54d974242a8cbae7b39a2523,
         type: 3}
       propertyPath: m_Name
-      value: Loose Limit
+      value: Draw Limit
       objectReference: {fileID: 0}
     - target: {fileID: 8129788651710694948, guid: c32a6b7f54d974242a8cbae7b39a2523,
         type: 3}
@@ -1918,7 +1918,7 @@ PrefabInstance:
     - target: {fileID: 8727476217085125596, guid: c32a6b7f54d974242a8cbae7b39a2523,
         type: 3}
       propertyPath: m_text
-      value: 'LooseLimit :'
+      value: 'Draw Limit :'
       objectReference: {fileID: 0}
     - target: {fileID: 8727476217085125596, guid: c32a6b7f54d974242a8cbae7b39a2523,
         type: 3}

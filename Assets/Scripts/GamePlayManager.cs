@@ -72,16 +72,19 @@ public class GamePlayManager : MonoBehaviour,IOnEventCallback
     //listen to events,and respond locally
     public void OnEvent(EventData data)
     {
-        if (data.Code == TIMER_UPDATE)
+        if (data.Code == TIMER_UPDATE) //check what event you recieved
         {
-            object[] localData = (object[])data.CustomData;
-            timerText.text = (string)localData[0];
+            object[] localData = (object[])data.CustomData;//get the data from the event and make it local
+            timerText.text = (string)localData[0];//using the data,remembering to cast the data as the proper type
         }
-       else if (data.Code == UPDATE_NAMES)
+       if (data.Code == UPDATE_NAMES) //check what event you recieved
         {
-            object[] localData = (object[])data.CustomData;
+            object[] localData = (object[])data.CustomData;//get the data from the event and make it local
             player1Name = (string)localData[0];
             player2Name = (string)localData[1];
+            //update the score UI
+            player1ScoreText.text = player1Name + " : " + player1Score;
+            player2ScoreText.text = player2Name + " : " + player2Score;
         }
     }
     #endregion

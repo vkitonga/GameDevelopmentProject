@@ -8,7 +8,7 @@ public enum PlayerNumber { ONE, TWO }
 
 public class AltPlayerInput : MonoBehaviour
 {
-    [SerializeField] PhotonView view;
+    private PhotonView view;
     public PlayerNumber playerNumber;
 
     [HideInInspector]
@@ -28,7 +28,7 @@ public class AltPlayerInput : MonoBehaviour
 
     void Start()
     {
-        if (isOnline) view = GetComponent<PhotonView>();
+         view = GetComponent<PhotonView>();
         if (playerNumber == PlayerNumber.ONE)
         {
             shootKey = KeyCode.G;
@@ -43,7 +43,7 @@ public class AltPlayerInput : MonoBehaviour
     }
     public void Update()
     {
-        if (isOnline && view.IsMine == false) return; //ADDEDLINE FOR ONLINE PLAY
+        if (isOnline && view.IsMine == false) return; // cancel the inputs if we are online but this is not our player
         moveInput = CalculateInputVector();
         shoot = Input.GetKey(shootKey);
     }

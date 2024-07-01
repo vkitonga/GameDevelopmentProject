@@ -223,7 +223,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &220052608
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1821,6 +1821,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,
         type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 2106158767}
+    - targetCorrespondingSourceObject: {fileID: 8944336655422409498, guid: f6d148d888ffbf54b9afe9936dfaec1f,
+        type: 3}
       insertIndex: -1
       addedObject: {fileID: 2106158764}
   m_SourcePrefab: {fileID: 100100000, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
@@ -1933,7 +1937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82bdede0460fa034eb4eb5df528b4e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 0
+  gameState: 1
   player1Score: 0
   player2Score: 0
   maxScore: 10
@@ -2648,6 +2652,14 @@ Camera:
     type: 3}
   m_PrefabInstance: {fileID: 1645127028}
   m_PrefabAsset: {fileID: 0}
+--- !u!81 &2106158767
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106158763}
+  m_Enabled: 1
 --- !u!114 &135756641613574975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3599,12 +3611,12 @@ PrefabInstance:
     - target: {fileID: 1646722231808939221, guid: 0469c2878cdfba5458058afe1af67db6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.109
+      value: -0.052
       objectReference: {fileID: 0}
     - target: {fileID: 1646722231808939221, guid: 0469c2878cdfba5458058afe1af67db6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.255
+      value: 0.295
       objectReference: {fileID: 0}
     - target: {fileID: 1646722231808939221, guid: 0469c2878cdfba5458058afe1af67db6,
         type: 3}
