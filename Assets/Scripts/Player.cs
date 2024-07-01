@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using TMPro;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class Player : MonoBehaviour
 {
    [SerializeField]private TextMeshProUGUI textScore;
    [SerializeField]private TextMeshProUGUI textGoal;
+    [SerializeField] PhotonView view;
    private StarterAssetsInputs  starterAssetsInputs ;
    private Animator animator;
    private Ball ballAttachedToPlayer; //Updated Line
@@ -22,6 +25,7 @@ public class Player : MonoBehaviour
     public bool altInput;
     [HideInInspector]
     public AltPlayerInput inputScript;
+    public bool isOnline = false;
 
     //Updated Line
    public Ball BallAttachedToPlayer {get => ballAttachedToPlayer; set => ballAttachedToPlayer = value;}
@@ -31,6 +35,7 @@ public class Player : MonoBehaviour
     {
         starterAssetsInputs =GetComponent<StarterAssetsInputs >();
         animator = GetComponent<Animator>();
+        if (isOnline) view = GetComponent<PhotonView>();
         player2Score = 0;
         player1Score = 0;
     }
@@ -38,6 +43,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isOnline && view.IsMine == false) return; //ADDEDLINE FOR ONLINE PLAY
         if(starterAssetsInputs.shoot || altInput && inputScript.shoot)
         {
             starterAssetsInputs.shoot=false;

@@ -17,8 +17,10 @@ GameObject:
   - component: {fileID: 398852890363741420}
   - component: {fileID: 3585717693844261083}
   - component: {fileID: 1545725467725227753}
+  - component: {fileID: 8063438568836523905}
+  - component: {fileID: 1653956664403467040}
   m_Layer: 8
-  m_Name: Keith
+  m_Name: OnlinePlayer2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,8 +168,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textScore: {fileID: 0}
   textGoal: {fileID: 0}
+  view: {fileID: 0}
   altInput: 1
   inputScript: {fileID: 1545725467725227753}
+  isOnline: 1
 --- !u!114 &398852890363741420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +308,47 @@ MonoBehaviour:
   moveInput: {x: 0, y: 0}
   shoot: 0
   analogMovement: 0
+--- !u!114 &8063438568836523905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446850644666527968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 1653956664403467040}
+  - {fileID: 64356517141093535}
+  - {fileID: 2232438931712586683}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1653956664403467040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446850644666527968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 0
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &2438553901125341215
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +515,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44051429890cc4241ae4c8960e586f4b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 64356517141093535}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 44051429890cc4241ae4c8960e586f4b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2232438931712586683}
   m_SourcePrefab: {fileID: 100100000, guid: 44051429890cc4241ae4c8960e586f4b, type: 3}
 --- !u!4 &4747332095234077467 stripped
 Transform:
@@ -478,3 +531,60 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5074237495504377072}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5380176269382822305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 44051429890cc4241ae4c8960e586f4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5074237495504377072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &64356517141093535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5380176269382822305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 0
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &2232438931712586683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5380176269382822305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 1
+    SynchronizeType: 2
+    Name: Speed
+  - Type: 4
+    SynchronizeType: 2
+    Name: Jump
+  - Type: 4
+    SynchronizeType: 2
+    Name: Grounded
+  - Type: 4
+    SynchronizeType: 2
+    Name: FreeFall
+  - Type: 1
+    SynchronizeType: 2
+    Name: MotionSpeed
+  m_SynchronizeLayers:
+  - SynchronizeType: 2
+    LayerIndex: 0
+  - SynchronizeType: 2
+    LayerIndex: 1

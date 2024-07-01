@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Photon.Pun;
+using Photon.Realtime;
 
 /// <summary>
 /// Manage game state, scores, and respawns during gameplay. Only one GamePlayManager should be in the scene
@@ -20,6 +22,7 @@ public class GamePlayManager : MonoBehaviour
 
     public int maxScore;
     public float gameDuration;
+    public bool isOnline = false;
 
     //store respawns positions
     public Transform[] respawnPositions;
@@ -48,6 +51,7 @@ public class GamePlayManager : MonoBehaviour
     [Header("Other Components")]
     //store a timer
     public Timer gameTimer;
+    PhotonView view;
 
 
     #endregion
@@ -158,24 +162,34 @@ public class GamePlayManager : MonoBehaviour
         //set game state
         gameState = State.Intro;
 
-        //Spawn players for the first time
-        int spawnIndex = Random.Range(0, respawnPositions.Length);
-        player1 = Instantiate(player1Prefab, respawnPositions[spawnIndex].position, respawnPositions[spawnIndex].rotation);
-        lastSpawnP1 = spawnIndex;
-
-        //repeat for player 2
-        spawnIndex = Random.Range(0, respawnPositions.Length);
-
-        int attempts = 0;
-        while (spawnIndex == lastSpawnP1 && attempts < 3)
+        if (!isOnline)
         {
-            Random.Range(0, respawnPositions.Length);
-            attempts++;
+            //Spawn players for the first time
+            int spawnIndex = Random.Range(0, respawnPositions.Length);
+            player1 = Instantiate(player1Prefab, respawnPositions[spawnIndex].position, respawnPositions[spawnIndex].rotation);
+            lastSpawnP1 = spawnIndex;
+
+            //repeat for player 2
+            spawnIndex = Random.Range(0, respawnPositions.Length);
+
+            int attempts = 0;
+            while (spawnIndex == lastSpawnP1 && attempts < 3)
+            {
+                Random.Range(0, respawnPositions.Length);
+                attempts++;
+            }
+
+            player2 = Instantiate(player2Prefab, respawnPositions[spawnIndex].position, respawnPositions[spawnIndex].rotation);
+            lastSpawnP2 = spawnIndex;
         }
-
-        player2 = Instantiate(player2Prefab, respawnPositions[spawnIndex].position, respawnPositions[spawnIndex].rotation);
-        lastSpawnP2 = spawnIndex;
-
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+        {
+            PhotonNetwork.Instantiate(player1Prefab.name, respawnPositions[0].position, Quaternion.identity);
+        }
+        else if (PhotonNetwork.LocalPlayer.ActorNumber == 2)
+        {
+            PhotonNetwork.Instantiate(player2Prefab.name, respawnPositions[1].position, Quaternion.identity);
+        }
 
         //player names displayed in UI
         player1ScoreText.text = player1Name + " : " + 0;
