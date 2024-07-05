@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using Photon.Pun;
+using Photon.Realtime;
+
 public class TurnManager : MonoBehaviour
 {
+    [SerializeField] PhotonView view;
   public static TurnManager instance;    
     public GameObject player1, player2;
 
@@ -11,7 +15,7 @@ public class TurnManager : MonoBehaviour
     public Turn currentTurn;
 
   public CinemachineVirtualCamera  vCam;
-
+    public bool isOnline = false;
   public GameObject player1Root, player2Root;
 
     void Awake()
@@ -23,13 +27,15 @@ public class TurnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (isOnline) view = GetComponent<PhotonView>();
         ChangeTurn();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        
+        if (Input.GetKeyDown(KeyCode.T))
         {
             ChangeTurn();
             //if(currentTurn == Turn.Player2) ChangeTurn();
@@ -40,6 +46,7 @@ public class TurnManager : MonoBehaviour
 
     public void ChangeTurn()
     {
+        if (isOnline && view.IsMine == false) return; //Change Turns when Online.
         Debug.Log("Attempt To Change");
         if(currentTurn == Turn.Player2) currentTurn = Turn.Player1;
             

@@ -1115,10 +1115,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2586ecdb0095840811fefc5906b082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  view: {fileID: 0}
   player1: {fileID: 4416926083347132227}
   player2: {fileID: 7052810896149407332}
   currentTurn: 1
   vCam: {fileID: 1875136396}
+  isOnline: 0
   player1Root: {fileID: 8338988565591873048}
   player2Root: {fileID: 537239341}
 --- !u!1001 &1129503941
@@ -1558,7 +1560,19 @@ MonoBehaviour:
   startOnAwake: 1
   onTimerFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1283803453}
+        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+        m_MethodName: FinishTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   IsRunning: 0
   CurrentTime: 0
 --- !u!1001 &1402827283
@@ -1909,7 +1923,7 @@ MonoBehaviour:
   countDown: 1
   maxTime: 60
   finite: 1
-  startOnAwake: 0
+  startOnAwake: 1
   onTimerFinished:
     m_PersistentCalls:
       m_Calls:
